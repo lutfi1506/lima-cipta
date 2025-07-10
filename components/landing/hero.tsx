@@ -41,7 +41,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Image
-              src="/hero-image.jpg"
+              src="https://placehold.co/600x400.png"
               width="600"
               height="400"
               alt="Digital Agency Hero Image"

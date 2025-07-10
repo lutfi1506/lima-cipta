@@ -8,21 +8,21 @@ const projects = [
     title: "E-commerce Mewah",
     description:
       "Platform e-commerce untuk brand fashion premium dengan integrasi pembayaran.",
-    image: "/project-1.jpg",
+    image: "https://placehold.co/600x400.png",
     tags: ["Web App", "UI/UX", "Next.js"],
   },
   {
     title: "Aplikasi SaaS",
     description:
       "Desain dan pengembangan aplikasi Software-as-a-Service untuk manajemen proyek.",
-    image: "/project-2.jpg",
+    image: "https://placehold.co/600x400.png",
     tags: ["UI/UX", "React", "SaaS"],
   },
   {
     title: "Landing Page Startup",
     description:
       "Landing page konversi tinggi untuk peluncuran produk startup teknologi.",
-    image: "/project-3.jpg",
+    image: "https://placehold.co/600x400.png",
     tags: ["Web Design", "Marketing"],
   },
 ];
