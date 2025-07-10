@@ -6,6 +6,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --container-center: true;
+  --container-padding-x: 1.5rem;
+  --container-width-sm: 640px;
+  --container-width-md: 768px;
+  --container-width-lg: 1024px;
+  --container-width-xl: 1280px;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -78,39 +84,58 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* ... (kode sebelumnya biarkan saja) ... */
+
+/* GANTI blok .dark yang ada dengan yang ini */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: oklch(0.09 0.02 250); /* Biru sangat gelap sebagai latar */
+  --foreground: oklch(0.98 0.01 250); /* Putih gading untuk teks */
+
+  --card: oklch(0.12 0.02 250); /* Kartu sedikit lebih terang dari background */
+  --card-foreground: oklch(0.98 0.01 250);
+
+  --popover: oklch(0.12 0.02 250);
+  --popover-foreground: oklch(0.98 0.01 250);
+
+  --primary: oklch(0.65 0.16 255); /* Biru cerah sebagai aksen utama */
+  --primary-foreground: oklch(0.98 0.01 250);
+
+  --secondary: oklch(0.25 0.03 250); /* Warna sekunder yang lebih kalem */
+  --secondary-foreground: oklch(0.95 0.01 250);
+
+  --muted: oklch(0.2 0.02 250);
+  --muted-foreground: oklch(
+    0.65 0.02 250
+  ); /* Abu-abu kebiruan untuk teks muted */
+
+  --accent: oklch(0.25 0.03 250);
+  --accent-foreground: oklch(0.95 0.01 250);
+
+  --destructive: oklch(0.65 0.22 20); /* Merah untuk notifikasi error */
+
+  --border: oklch(1 0 0 / 15%); /* Border transparan */
+  --input: oklch(1 0 0 / 15%); /* Input dengan sedikit transparansi */
+  --ring: oklch(0.7 0.16 255); /* Warna ring saat fokus, cocok dengan primary */
+
+  /* Warna chart (bisa disesuaikan) */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Warna sidebar (jika ada) */
+  --sidebar: oklch(0.09 0.02 250);
+  --sidebar-foreground: oklch(0.98 0.01 250);
+  --sidebar-primary: oklch(0.65 0.16 255);
+  --sidebar-primary-foreground: oklch(0.98 0.01 250);
+  --sidebar-accent: oklch(0.25 0.03 250);
+  --sidebar-accent-foreground: oklch(0.95 0.01 250);
+  --sidebar-border: oklch(1 0 0 / 15%);
+  --sidebar-ring: oklch(0.7 0.16 255);
 }
+
+/* ... (sisa kode biarkan saja) ... */
 
 @layer base {
   * {
