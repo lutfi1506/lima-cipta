@@ -1,63 +1,76 @@
-// src/components/landing/services-section.tsx
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
-import { LaptopIcon, PenToolIcon, SearchIcon } from "lucide-react";
+// components/landing/services.tsx
 
-const services = [
+import { Globe, Palette, FileText, Smartphone, Shirt } from "lucide-react";
+
+const servicesList = [
   {
-    icon: LaptopIcon,
-    title: "Web Development",
+    icon: <Globe className="h-8 w-8 text-primary" />,
+    title: "Desain & Pembuatan Website",
     description:
-      "Pembuatan website modern, cepat, dan responsif menggunakan teknologi terkini seperti React dan Next.js.",
+      "Kami merancang Company Profile, Toko Online, dan Landing Page yang responsif dan modern untuk kebutuhan bisnis Anda.",
   },
   {
-    icon: PenToolIcon,
-    title: "UI/UX Design",
+    icon: <Palette className="h-8 w-8 text-primary" />,
+    title: "Desain Grafis",
     description:
-      "Desain antarmuka yang intuitif dan pengalaman pengguna yang memikat untuk aplikasi web dan mobile Anda.",
+      "Layanan desain kreatif untuk Flayer, Poster, Logo, Banner, hingga konten visual untuk media sosial Anda.",
   },
   {
-    icon: SearchIcon,
-    title: "Digital Marketing",
+    icon: <FileText className="h-8 w-8 text-primary" />,
+    title: "Jasa Pengetikan & Dokumen",
     description:
-      "Strategi pemasaran digital, SEO, dan manajemen media sosial untuk meningkatkan jangkauan brand Anda.",
+      "Jasa profesional untuk pengetikan dan pembuatan dokumen seperti Proposal, Skripsi, Makalah, dan Laporan.",
+  },
+  {
+    icon: <Smartphone className="h-8 w-8 text-primary" />,
+    title: "Aplikasi Android Sederhana",
+    description:
+      "Pengembangan aplikasi Android untuk portofolio, company profile, undangan digital, dan kebutuhan spesifik lainnya.",
+  },
+  {
+    icon: <Shirt className="h-8 w-8 text-primary" />,
+    title: "Produk Kreatif & Merchandise",
+    description:
+      "Produksi berbagai merchandise custom seperti Kaos, Stiker, Gantungan Kunci, dan lainnya untuk branding atau acara Anda.",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="w-full py-12 md:py-24 lg:py-32">
+    <section id="services" className="w-full py-20 lg:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Solusi Digital untuk Anda
-            </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Dari ide hingga peluncuran, kami menyediakan layanan lengkap untuk
-              mewujudkan visi digital Anda.
-            </p>
+        {/* Judul Section */}
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+            Layanan Kami
           </div>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Solusi Lengkap untuk Kebutuhan Digital Anda
+          </h2>
+          <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+            Dari identitas visual hingga kehadiran online, kami menyediakan
+            layanan terintegrasi untuk mendukung pertumbuhan Anda.
+          </p>
         </div>
-        <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 mt-12">
-          {services.map((service, index) => (
-            <Card
+
+        {/* Container Layanan - MENGGUNAKAN FLEXBOX */}
+        <div className="mx-auto flex max-w-5xl flex-wrap items-stretch justify-center gap-8">
+          {servicesList.map((service, index) => (
+            // Setiap kartu sekarang memiliki lebar yang ditentukan
+            <div
               key={index}
-              className="flex flex-col hover:shadow-lg hover:scale-105 transition-transform duration-300"
+              className="flex w-full flex-col items-start rounded-lg bg-card p-6 shadow-sm transition-shadow hover:shadow-md sm:w-[300px] text-center justify-center"
             >
-              <CardHeader>
-                <div className="p-4 bg-primary/10 rounded-full w-fit mb-4">
-                  <service.icon className="w-8 h-8 text-primary" />
-                </div>
-                <CardTitle>{service.title}</CardTitle>
-                <CardDescription>{service.description}</CardDescription>
-              </CardHeader>
-            </Card>
+              <div className="p-3 rounded-full bg-primary/10 mb-4 mx-auto">
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-2 mx-auto">
+                {service.title}
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                {service.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

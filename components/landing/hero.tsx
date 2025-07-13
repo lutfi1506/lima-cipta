@@ -1,53 +1,53 @@
-// src/components/landing/hero-section.tsx
-"use client";
+// components/landing/hero.tsx
+
 import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { MoveRight, MessagesSquare } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
-      <div className="container px-4 md:px-10">
-        <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-          <motion.div
-            className="flex flex-col justify-center space-y-4"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Ubah Ide Anda Menjadi Karya Digital Luar Biasa
-              </h1>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Kami bukan hanya developer, kami adalah partner digital Anda.
-                Kami menggabungkan teknologi modern dan desain yang berpusat
-                pada pengguna untuk melambungkan bisnis Anda.
-              </p>
+    <section
+      id="hero"
+      className="w-full py-20 lg:py-32 bg-background text-foreground"
+    >
+      <div className="container px-6 md:px-10 ">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+          {/* Kolom Teks */}
+          <div className="flex flex-col justify-center space-y-6">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
+              Mewujudkan Ide Anda Menjadi Solusi Digital Profesional
+            </h1>
+            <p className="max-w-[600px] text-muted-foreground md:text-xl">
+              Kami membantu bisnis, sekolah, dan individu membangun citra merek
+              yang kuat melalui website, desain grafis, dan produk kreatif yang
+              berkualitas.
+            </p>
+            {/* Tombol Aksi */}
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda." // Ganti dengan nomor WhatsApp Anda
+                target="_blank"
+                className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+              >
+                <MessagesSquare className="mr-2 h-5 w-5" />
+                Hubungi via WhatsApp
+              </Link>
+              <Link
+                href="#portfolio" // Arahkan ke section portofolio
+                className="inline-flex h-12 items-center justify-center rounded-lg border border-border bg-transparent px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              >
+                Lihat Portofolio
+                <MoveRight className="ml-2 h-5 w-5" />
+              </Link>
             </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button asChild size="lg">
-                <Link href="#contact">Mulai Proyek Anda</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link href="#portfolio">Lihat Hasil Kerja Kami</Link>
-              </Button>
+          </div>
+
+          {/* Kolom Visual/Gambar (Placeholder) */}
+          <div className="flex items-center justify-center">
+            {/* Ganti dengan komponen Image dari Next.js atau SVG kustom */}
+            <div className="w-full max-w-md h-80 rounded-xl bg-muted flex items-center justify-center">
+              <p className="text-muted-foreground">Visual/Gambar Portofolio</p>
             </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Image
-              src="https://placehold.co/600x400.png"
-              width="600"
-              height="400"
-              alt="Digital Agency Hero Image"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full"
-            />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

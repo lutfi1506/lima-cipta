@@ -1,78 +1,112 @@
-// src/components/landing/portfolio-section.tsx
-import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+// components/landing/portfolio.tsx
+"use client"; // Diperlukan karena kita akan menggunakan state (useState)
 
-const projects = [
+import { useState } from "react";
+import Image from "next/image";
+
+// Data portofolio (Ganti dengan proyek asli Anda nanti)
+const portfolioItems = [
   {
-    title: "E-commerce Mewah",
-    description:
-      "Platform e-commerce untuk brand fashion premium dengan integrasi pembayaran.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["Web App", "UI/UX", "Next.js"],
+    category: "Website",
+    title: "Company Profile B-Corp",
+    image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Website",
   },
   {
-    title: "Aplikasi SaaS",
-    description:
-      "Desain dan pengembangan aplikasi Software-as-a-Service untuk manajemen proyek.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["UI/UX", "React", "SaaS"],
+    category: "Desain Grafis",
+    title: "Logo & Branding K-Food",
+    image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Desain+Grafis",
   },
   {
-    title: "Landing Page Startup",
-    description:
-      "Landing page konversi tinggi untuk peluncuran produk startup teknologi.",
-    image: "https://placehold.co/600x400.png",
-    tags: ["Web Design", "Marketing"],
+    category: "Aplikasi",
+    title: "Aplikasi Undangan Digital",
+    image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Aplikasi",
+  },
+  {
+    category: "Website",
+    title: "Toko Online Furnitur",
+    image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Toko+Online",
+  },
+  {
+    category: "Merchandise",
+    title: "Kaos Komunitas Motor",
+    image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Merchandise",
+  },
+  {
+    category: "Desain Grafis",
+    title: "Konten Instagram Edukasi",
+    image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Konten+Sosmed",
   },
 ];
 
+const categories = [
+  "Semua",
+  "Website",
+  "Desain Grafis",
+  "Aplikasi",
+  "Merchandise",
+];
+
 export default function Portfolio() {
+  const [activeCategory, setActiveCategory] = useState("Semua");
+
+  const filteredItems =
+    activeCategory === "Semua"
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === activeCategory);
+
   return (
-    <section
-      id="portfolio"
-      className="w-full py-12 md:py-24 lg:py-32 bg-muted/50"
-    >
+    <section id="portfolio" className="w-full py-20 lg:py-32">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Karya yang Kami Banggakan
-            </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Setiap piksel dan baris kode dibuat dengan dedikasi. Inilah
-              beberapa di antaranya.
-            </p>
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+            Portofolio Kami
           </div>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Karya yang Berbicara
+          </h2>
+          <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+            Lihat beberapa proyek yang telah kami kerjakan untuk klien dari
+            berbagai industri.
+          </p>
         </div>
-        <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 mt-12">
-          {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden group">
-              <CardContent className="p-0">
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={project.image}
-                    width="600"
-                    height="400"
-                    alt={project.title}
-                    className="aspect-video w-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+
+        <div className="flex justify-center flex-wrap gap-2 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                activeCategory === category
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted hover:bg-accent"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredItems.map((item, index) => (
+            <div
+              key={index}
+              className="group overflow-hidden rounded-lg shadow-sm hover:shadow-lg transition-shadow"
+            >
+              <div className="relative">
+                <Image
+                  src={item.image}
+                  alt={`Gambar proyek ${item.title}`}
+                  width={500}
+                  height={300}
+                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/20" />
+              </div>
+              <div className="p-4 bg-card">
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.category}</p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
