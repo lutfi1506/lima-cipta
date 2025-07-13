@@ -5,6 +5,7 @@ import Services from "@/components/landing/services";
 import Portfolio from "@/components/landing/portfolio";
 import Testimonial from "@/components/landing/testimonial";
 import Contact from "@/components/landing/contact";
+import About from "@/components/landing/about";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <About />
         <Services />
         <Portfolio />
         <Testimonial />

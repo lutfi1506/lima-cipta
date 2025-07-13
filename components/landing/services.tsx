@@ -37,7 +37,7 @@ const servicesList = [
 
 export default function Services() {
   return (
-    <section id="services" className="w-full py-20 lg:py-32 bg-secondary/50">
+    <section id="services" className="w-full py-20 lg:py-32 bg-background">
       <div className="container px-4 md:px-6">
         {/* Judul Section */}
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">

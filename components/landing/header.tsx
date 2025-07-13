@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Menu, X, Rocket } from "lucide-react";
 
 const navLinks = [
+  { href: "#hero", label: "Beranda" },
   { href: "#services", label: "Layanan" },
   { href: "#portfolio", label: "Portofolio" },
   { href: "#testimonial", label: "Testimoni" },

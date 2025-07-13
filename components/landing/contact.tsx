@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Contact() {
   return (
-    <section id="contact" className="w-full py-20 lg:py-32">
+    <section id="contact" className="w-full py-20 lg:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
         {/* Judul Section */}
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
@@ -106,7 +106,7 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold">Lokasi</p>
                   <p className="text-muted-foreground">
-                    Bandung, Jawa Barat, Indonesia
+                    Melayani Klien di Seluruh Indonesia
                   </p>
                 </div>
               </div>

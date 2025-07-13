@@ -1,40 +1,45 @@
 // components/landing/portfolio.tsx
-"use client"; // Diperlukan karena kita akan menggunakan state (useState)
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
 
-// Data portofolio (Ganti dengan proyek asli Anda nanti)
 const portfolioItems = [
   {
     category: "Website",
     title: "Company Profile B-Corp",
     image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Website",
+    alt: "Tampilan mockup halaman utama website company profile untuk B-Corp di berbagai perangkat.",
   },
   {
     category: "Desain Grafis",
     title: "Logo & Branding K-Food",
     image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Desain+Grafis",
+    alt: "Presentasi desain logo dan identitas brand untuk usaha kuliner Korea K-Food.",
   },
   {
     category: "Aplikasi",
     title: "Aplikasi Undangan Digital",
     image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Aplikasi",
+    alt: "Tampilan antarmuka pengguna (UI) dari aplikasi mobile undangan digital.",
   },
   {
     category: "Website",
     title: "Toko Online Furnitur",
     image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Toko+Online",
+    alt: "Screenshot halaman produk dari website e-commerce (toko online) furnitur.",
   },
   {
     category: "Merchandise",
     title: "Kaos Komunitas Motor",
     image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Merchandise",
+    alt: "Mockup desain kaos custom untuk acara touring komunitas motor klasik.",
   },
   {
     category: "Desain Grafis",
     title: "Konten Instagram Edukasi",
     image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Konten+Sosmed",
+    alt: "Contoh desain konten carousel edukasi untuk feed Instagram.",
   },
 ];
 
@@ -55,8 +60,9 @@ export default function Portfolio() {
       : portfolioItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="portfolio" className="w-full py-20 lg:py-32">
+    <section id="portfolio" className="w-full py-20 lg:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
+        {/* Judul Section */}
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
             Portofolio Kami
@@ -70,6 +76,7 @@ export default function Portfolio() {
           </p>
         </div>
 
+        {/* Tombol Filter */}
         <div className="flex justify-center flex-wrap gap-2 mb-12">
           {categories.map((category) => (
             <button
@@ -86,6 +93,7 @@ export default function Portfolio() {
           ))}
         </div>
 
+        {/* Grid Portofolio */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
             <div
@@ -95,7 +103,7 @@ export default function Portfolio() {
               <div className="relative">
                 <Image
                   src={item.image}
-                  alt={`Gambar proyek ${item.title}`}
+                  alt={item.alt}
                   width={500}
                   height={300}
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
