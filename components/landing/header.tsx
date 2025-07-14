@@ -20,14 +20,12 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full bg-background/80 backdrop-blur-sm shadow-sm z-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
           <Link href="#" className="flex items-center gap-2 font-bold text-lg">
             <Rocket className="h-6 w-6 text-primary" />
             <span>Lima Cipta Digital</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -48,7 +46,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -57,16 +55,15 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-background border-t">
-          <nav className="flex flex-col gap-4 p-4">
+        <div className="lg:hidden bg-background border-t">
+          <nav className="container flex flex-col items-center gap-6 py-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary"
-                onClick={() => setIsOpen(false)} // Close menu on click
+                className="text-lg font-medium text-muted-foreground transition-colors hover:text-primary"
+                onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>
@@ -74,7 +71,7 @@ export default function Header() {
             <Link
               href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda."
               target="_blank"
-              className="w-full inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+              className="w-full max-w-xs inline-flex h-12 items-center justify-center rounded-lg bg-primary px-4 text-base font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
             >
               Hubungi Kami
             </Link>

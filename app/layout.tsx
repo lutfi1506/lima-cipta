@@ -30,46 +30,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Lima Cipta Digital" }],
   creator: "Lima Cipta Digital",
-
-  // Metadata Open Graph
-  openGraph: {
-    title: "Lima Cipta Digital - Jasa Website & Desain Grafis Profesional",
-    description: "Solusi kreatif untuk UMKM dan bisnis di seluruh Indonesia.",
-    url: "https://www.namawebsitemu.com", // Ganti dengan URL asli Anda nanti
-    siteName: "Lima Cipta Digital",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Layanan Jasa Website dan Desain Grafis oleh Lima Cipta Digital",
-      },
-    ],
-    locale: "id_ID",
-    type: "website",
-  },
-
-  // Metadata Twitter Card
-  twitter: {
-    card: "summary_large_image",
-    title: "Lima Cipta Digital - Jasa Website & Desain Grafis Profesional",
-    description:
-      "Jasa pembuatan website, desain grafis, dan merchandise untuk bisnis Anda.",
-    images: ["/og-image.png"],
-  },
-
-  // Metadata Lainnya
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
 };
 
 export default function RootLayout({

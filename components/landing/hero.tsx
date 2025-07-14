@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="container px-6 md:px-10 ">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           {/* Kolom Teks */}
-          <div className="flex flex-col justify-center space-y-6">
+          <div className="flex flex-col justify-center space-y-6 text-center items-center lg:text-left lg:items-start">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
               Mewujudkan Ide Anda Menjadi Solusi Digital Profesional
             </h1>
