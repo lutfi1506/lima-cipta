@@ -2,6 +2,9 @@
 
 import { Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
+import { Input } from "@/components/ui/input"; // Menggunakan komponen Input yang sudah ada
+import { Textarea } from "@/components/ui/textarea"; // Menggunakan komponen Textarea
+import { Button } from "@/components/ui/button"; // Menggunakan komponen Button
 
 export default function Contact() {
   return (
@@ -13,71 +16,56 @@ export default function Contact() {
             Hubungi Kami
           </div>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Siap Memulai Proyek Anda?
+            Siap Mewujudkan Ide Anda?
           </h2>
           <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-            Kami sangat antusias untuk mendengar ide Anda. Hubungi kami melalui
-            formulir di bawah atau detail kontak di samping.
+            Kami sangat antusias untuk mendengar tentang proyek Anda. Isi
+            formulir di bawah atau hubungi kami langsung melalui WhatsApp untuk
+            respon lebih cepat.
           </p>
         </div>
 
         {/* Konten Kontak (Grid) */}
         <div className="mx-auto max-w-4xl grid lg:grid-cols-2 gap-12">
           {/* Kolom Formulir */}
-          <div className="flex flex-col space-y-4">
-            <div>
-              <label htmlFor="name" className="sr-only">
-                Nama
-              </label>
-              <input
-                id="name"
-                type="text"
-                placeholder="Nama Anda"
-                className="w-full rounded-md border border-input bg-background p-3 text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Email Anda"
-                className="w-full rounded-md border border-input bg-background p-3 text-sm"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="sr-only">
-                Pesan
-              </label>
-              <textarea
-                id="message"
-                placeholder="Tuliskan pesan Anda di sini..."
-                rows={5}
-                className="w-full rounded-md border border-input bg-background p-3 text-sm"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full h-12 rounded-lg bg-primary text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
-            >
+          <form className="flex flex-col space-y-4">
+            <Input
+              id="name"
+              type="text"
+              placeholder="Nama Lengkap Anda"
+              className="bg-white"
+              required
+            />
+            <Input
+              id="email"
+              type="email"
+              placeholder="Alamat Email Anda"
+              className="bg-white"
+              required
+            />
+            <Textarea
+              id="message"
+              placeholder="Ceritakan sedikit tentang proyek atau ide yang ingin Anda wujudkan..."
+              rows={5}
+              className="bg-white"
+              required
+            />
+            <Button type="submit" size="lg" className="w-full">
               Kirim Pesan
-            </button>
-          </div>
+            </Button>
+          </form>
 
-          {/* Kolom Detail Kontak */}
           <div className="flex flex-col justify-center space-y-6">
             <h3 className="text-2xl font-bold">Detail Kontak</h3>
             <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-md bg-muted">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-md bg-muted flex-shrink-0">
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold">WhatsApp</p>
+                  <p className="font-semibold">WhatsApp (Respon Cepat)</p>
                   <Link
-                    href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda."
+                    href="https://wa.me/6281234567890?text=Halo, saya tertarik dengan layanan Lima Cipta Digital."
                     target="_blank"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
@@ -85,22 +73,22 @@ export default function Contact() {
                   </Link>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-md bg-muted">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-md bg-muted flex-shrink-0">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <p className="font-semibold">Email</p>
                   <a
-                    href="mailto:halo@limacipta.id" // Ganti dengan email Anda
+                    href="mailto:halo@limacipta.id"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     halo@limacipta.id
                   </a>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-md bg-muted">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-md bg-muted flex-shrink-0">
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>

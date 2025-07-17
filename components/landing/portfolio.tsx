@@ -4,40 +4,43 @@
 import { useState } from "react";
 import Image from "next/image";
 
+// Data portofolio baru dengan studi kasus
 const portfolioItems = [
   {
     category: "Website",
-    title: "Company Profile B-Corp",
-    image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Website",
-    alt: "Tampilan mockup halaman utama website company profile untuk B-Corp di berbagai perangkat.",
+    title: "Toko Online & Profil 'Manis & Roti'",
+    image:
+      "https://placehold.co/500x300/f87171/ffffff.png?text=Manis+&+Roti+Website",
+    alt: "Tampilan website toko online untuk brand kue dan roti 'Manis & Roti'.",
   },
   {
     category: "Desain Grafis",
-    title: "Logo & Branding K-Food",
-    image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Desain+Grafis",
-    alt: "Presentasi desain logo dan identitas brand untuk usaha kuliner Korea K-Food.",
+    title: "Logo & Branding 'Manis & Roti'",
+    image:
+      "https://placehold.co/500x300/fb923c/ffffff.png?text=Manis+&+Roti+Logo",
+    alt: "Presentasi desain logo dan identitas brand untuk 'Manis & Roti'.",
   },
   {
     category: "Aplikasi",
-    title: "Aplikasi Undangan Digital",
+    title: "Konsep Aplikasi Undangan Digital",
     image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Aplikasi",
-    alt: "Tampilan antarmuka pengguna (UI) dari aplikasi mobile undangan digital.",
+    alt: "Contoh tampilan antarmuka pengguna (UI) dari aplikasi mobile undangan digital.",
   },
   {
     category: "Website",
-    title: "Toko Online Furnitur",
+    title: "Konsep Website Jasa Interior",
     image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Toko+Online",
-    alt: "Screenshot halaman produk dari website e-commerce (toko online) furnitur.",
+    alt: "Contoh halaman utama untuk website jasa desain interior.",
   },
   {
     category: "Merchandise",
-    title: "Kaos Komunitas Motor",
+    title: "Konsep Kaos Komunitas",
     image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Merchandise",
-    alt: "Mockup desain kaos custom untuk acara touring komunitas motor klasik.",
+    alt: "Mockup desain kaos custom untuk sebuah komunitas.",
   },
   {
     category: "Desain Grafis",
-    title: "Konten Instagram Edukasi",
+    title: "Contoh Konten Instagram Edukasi",
     image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Konten+Sosmed",
     alt: "Contoh desain konten carousel edukasi untuk feed Instagram.",
   },
@@ -71,8 +74,8 @@ export default function Portfolio() {
             Karya yang Berbicara
           </h2>
           <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-            Lihat beberapa proyek yang telah kami kerjakan untuk klien dari
-            berbagai industri.
+            Lihat beberapa contoh proyek dan konsep yang kami kembangkan untuk
+            menunjukkan bagaimana kami dapat membantu bisnis Anda.
           </p>
         </div>
 

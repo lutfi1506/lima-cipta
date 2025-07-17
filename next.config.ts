@@ -8,7 +8,9 @@ const nextConfig: NextConfig = {
         hostname: "placehold.co",
       },
     ],
+    unoptimized: true,
   },
+  output: "export",
 };
 
 export default nextConfig;

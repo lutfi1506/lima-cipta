@@ -3,7 +3,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import FloatingWhatsAppButton from "@/components/common/FloatingWhatsAppButton"; // 1. Impor komponen
+import FloatingWhatsAppButton from "@/components/common/FloatingWhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +30,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Lima Cipta Digital" }],
   creator: "Lima Cipta Digital",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -43,7 +52,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <FloatingWhatsAppButton /> {/* 2. Panggil komponen di sini */}
+        <FloatingWhatsAppButton />
       </body>
     </html>
   );
