@@ -2,15 +2,14 @@
 
 import { Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
-import { Input } from "@/components/ui/input"; // Menggunakan komponen Input yang sudah ada
-import { Textarea } from "@/components/ui/textarea"; // Menggunakan komponen Textarea
-import { Button } from "@/components/ui/button"; // Menggunakan komponen Button
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 export default function Contact() {
   return (
     <section id="contact" className="w-full py-20 lg:py-32 bg-secondary/50">
       <div className="container px-4 md:px-6">
-        {/* Judul Section */}
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
             Hubungi Kami
@@ -25,9 +24,7 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Konten Kontak (Grid) */}
         <div className="mx-auto max-w-4xl grid lg:grid-cols-2 gap-12">
-          {/* Kolom Formulir */}
           <form className="flex flex-col space-y-4">
             <Input
               id="name"
@@ -65,7 +62,7 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold">WhatsApp (Respon Cepat)</p>
                   <Link
-                    href="https://wa.me/6281234567890?text=Halo, saya tertarik dengan layanan Lima Cipta Digital."
+                    href="https://wa.me/6283822995395?text=Halo, saya tertarik dengan layanan Lima Cipta Digital."
                     target="_blank"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
@@ -80,7 +77,7 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold">Email</p>
                   <a
-                    href="mailto:halo@limacipta.id"
+                    href="mailto:halo@limacipta.co.id"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     halo@limacipta.id

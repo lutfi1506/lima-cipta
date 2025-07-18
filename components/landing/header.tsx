@@ -44,7 +44,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda."
+              href="https://wa.me/6283822995395?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda."
               target="_blank"
               className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
             >
@@ -77,7 +77,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda."
+              href="https://wa.me/6283822995395?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda."
               target="_blank"
               className="w-full max-w-xs inline-flex h-12 items-center justify-center rounded-lg bg-primary px-4 text-base font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
             >

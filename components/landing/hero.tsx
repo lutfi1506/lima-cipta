@@ -11,9 +11,7 @@ export default function Hero() {
       className="w-full pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gradient-to-b from-secondary/50 to-background text-foreground"
     >
       <div className="container px-6 md:px-10">
-        {/* Mengubah urutan dengan flexbox untuk mobile */}
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-          {/* Kolom Teks */}
           <div className="flex flex-col justify-center space-y-6 text-center items-center lg:text-left lg:items-start z-10">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
               Mewujudkan Ide Anda Menjadi{" "}
@@ -24,10 +22,10 @@ export default function Hero() {
               yang kuat melalui website, desain grafis, dan produk kreatif yang
               berkualitas.
             </p>
-            {/* Tombol Aksi */}
+
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
-                href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda."
+                href="https://wa.me/6283822995395?text=Halo,%20saya%20tertarik%20dengan%20layanan%20Anda."
                 target="_blank"
                 className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
               >
