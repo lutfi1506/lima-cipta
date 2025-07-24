@@ -19,7 +19,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-background/80 backdrop-blur-sm shadow-sm z-50">
+    <header className="fixed top-0 left-0 w-full bg-primary-foreground backdrop-blur-sm shadow-sm z-50">
       <div className="container mx-auto px-6 md:px-15">
         <div className="flex h-16 items-center justify-between">
           <Link href="#" className="flex items-center gap-2 font-bold text-lg">

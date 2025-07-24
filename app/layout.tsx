@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.limaciptadigital.com"),
   title: "Lima Cipta Digital - Jasa Website & Desain Grafis Profesional",
   description:
     "Solusi kreatif untuk UMKM dan bisnis di seluruh Indonesia. Kami menawarkan jasa pembuatan website, desain grafis, aplikasi Android, hingga merchandise.",
@@ -39,6 +40,30 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://www.limaciptadigital.com",
+    title: "Lima Cipta Digital - Jasa Website & Desain Grafis Profesional",
+    description:
+      "Solusi kreatif untuk UMKM dan bisnis di seluruh Indonesia. Kami menawarkan jasa pembuatan website, desain grafis, aplikasi Android, hingga merchandise.",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Lima Cipta Digital",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lima Cipta Digital - Jasa Website & Desain Grafis Profesional",
+    description:
+      "Solusi kreatif untuk UMKM dan bisnis di seluruh Indonesia. Kami menawarkan jasa pembuatan website, desain grafis, aplikasi Android, hingga merchandise.",
+    images: ["/og-image.webp"],
+    creator: "@limaciptadigital",
+  },
 };
 
 export default function RootLayout({

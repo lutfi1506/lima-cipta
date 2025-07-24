@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Contact() {
   return (
-    <section id="contact" className="w-full py-20 lg:py-32 bg-secondary/50">
+    <section id="contact" className="w-full py-20 lg:py-32 ">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
@@ -30,7 +30,6 @@ export default function Contact() {
               id="name"
               type="text"
               placeholder="Nama Lengkap Anda"
-              className="bg-white"
               required
             />
             <Input
@@ -66,7 +65,7 @@ export default function Contact() {
                     target="_blank"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +62 812-3456-7890
+                    +62 838-2299-5395
                   </Link>
                 </div>
               </div>

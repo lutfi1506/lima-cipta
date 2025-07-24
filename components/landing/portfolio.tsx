@@ -1,126 +1,167 @@
-// components/landing/portfolio.tsx
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { Lightbulb, Palette, Wrench } from "lucide-react";
 
-// Data portofolio baru dengan studi kasus
-const portfolioItems = [
+// Data untuk Studi Kasus Konseptual
+const caseStudies = [
   {
-    category: "Website",
-    title: "Toko Online & Profil 'Manis & Roti'",
-    image:
-      "https://placehold.co/500x300/f87171/ffffff.png?text=Manis+&+Roti+Website",
-    alt: "Tampilan website toko online untuk brand kue dan roti 'Manis & Roti'.",
+    id: "website",
+    category: "Website & Branding",
+    title: "Kopi Senja - Rebranding & Website E-Commerce",
+    challenge:
+      "Kopi Senja, sebuah kedai kopi lokal, ingin bertransisi ke ranah digital untuk menjangkau pelanggan yang lebih luas. Mereka membutuhkan identitas brand yang segar dan sebuah website e-commerce yang mudah digunakan.",
+    solution: [
+      {
+        icon: <Lightbulb className="h-6 w-6 text-primary" />,
+        step: "Tahap 1: Strategi & Riset",
+        details:
+          "Menganalisis target pasar dan kompetitor untuk merumuskan identitas brand yang unik dan strategi penjualan online yang efektif.",
+      },
+      {
+        icon: <Palette className="h-6 w-6 text-primary" />,
+        step: "Tahap 2: Desain UI/UX",
+        details:
+          "Merancang logo baru dan antarmuka website yang bersih, modern, dan mengutamakan kemudahan dalam proses pemesanan.",
+      },
+      {
+        icon: <Wrench className="h-6 w-6 text-primary" />,
+        step: "Tahap 3: Pengembangan",
+        details:
+          "Membangun website dengan teknologi Next.js untuk performa super cepat dan mengintegrasikan sistem pembayaran yang aman.",
+      },
+    ],
+    result:
+      "Sebuah platform digital yang tidak hanya cantik secara visual, tetapi juga berhasil meningkatkan brand awareness dan membuka kanal pendapatan baru bagi Kopi Senja.",
+    image: "https://placehold.co/1200x800/A78BFA/FFFFFF?text=Kopi+Senja+Mockup",
   },
   {
-    category: "Desain Grafis",
-    title: "Logo & Branding 'Manis & Roti'",
-    image:
-      "https://placehold.co/500x300/fb923c/ffffff.png?text=Manis+&+Roti+Logo",
-    alt: "Presentasi desain logo dan identitas brand untuk 'Manis & Roti'.",
-  },
-  {
-    category: "Aplikasi",
-    title: "Konsep Aplikasi Undangan Digital",
-    image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Aplikasi",
-    alt: "Contoh tampilan antarmuka pengguna (UI) dari aplikasi mobile undangan digital.",
-  },
-  {
-    category: "Website",
-    title: "Konsep Website Jasa Interior",
-    image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Toko+Online",
-    alt: "Contoh halaman utama untuk website jasa desain interior.",
-  },
-  {
-    category: "Merchandise",
-    title: "Konsep Kaos Komunitas",
-    image: "https://placehold.co/500x300/1f2937/ffffff.png?text=Merchandise",
-    alt: "Mockup desain kaos custom untuk sebuah komunitas.",
-  },
-  {
-    category: "Desain Grafis",
-    title: "Contoh Konten Instagram Edukasi",
-    image: "https://placehold.co/500x300/4a0e89/ffffff.png?text=Konten+Sosmed",
-    alt: "Contoh desain konten carousel edukasi untuk feed Instagram.",
+    id: "android",
+    category: "Aplikasi Android",
+    title: "GearUp - Aplikasi Komunitas Otomotif",
+    challenge:
+      "Komunitas otomotif 'GearUp' memerlukan sebuah platform terpusat di mana para anggotanya dapat berbagi informasi, jadwal acara, dan berdiskusi secara eksklusif.",
+    solution: [
+      {
+        icon: <Lightbulb className="h-6 w-6 text-primary" />,
+        step: "Tahap 1: Perencanaan Fitur",
+        details:
+          "Melakukan workshop dengan perwakilan komunitas untuk memetakan fitur-fitur utama seperti forum, kalender acara, dan profil anggota.",
+      },
+      {
+        icon: <Palette className="h-6 w-6 text-primary" />,
+        step: "Tahap 2: Prototyping & Desain",
+        details:
+          "Membuat prototipe interaktif untuk menguji alur pengguna sebelum masuk ke tahap desain antarmuka yang gagah dan sesuai tema otomotif.",
+      },
+      {
+        icon: <Wrench className="h-6 w-6 text-primary" />,
+        step: "Tahap 3: Pengembangan Native",
+        details:
+          "Mengembangkan aplikasi dengan Kotlin untuk memastikan performa yang mulus, stabil, dan integrasi penuh dengan fitur-fitur perangkat Android.",
+      },
+    ],
+    result:
+      "Aplikasi mobile yang menjadi 'rumah digital' bagi komunitas, meningkatkan interaksi anggota dan mempermudah koordinasi kegiatan.",
+    image: "https://placehold.co/1200x800/34D399/FFFFFF?text=GearUp+App+Mockup",
   },
 ];
 
-const categories = [
-  "Semua",
-  "Website",
-  "Desain Grafis",
-  "Aplikasi",
-  "Merchandise",
-];
+const Portfolio = () => {
+  const [activeTab, setActiveTab] = useState(caseStudies[0].id);
 
-export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState("Semua");
-
-  const filteredItems =
-    activeCategory === "Semua"
-      ? portfolioItems
-      : portfolioItems.filter((item) => item.category === activeCategory);
+  const activeStudy = caseStudies.find((study) => study.id === activeTab);
 
   return (
-    <section id="portfolio" className="w-full py-20 lg:py-32 bg-secondary/50">
-      <div className="container px-4 md:px-6">
-        {/* Judul Section */}
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-            Portofolio Kami
-          </div>
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Karya yang Berbicara
-          </h2>
-          <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-            Lihat beberapa contoh proyek dan konsep yang kami kembangkan untuk
-            menunjukkan bagaimana kami dapat membantu bisnis Anda.
-          </p>
-        </div>
+    <section id="portfolio" className="container py-24 sm:py-32 bg-sidebar">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold">
+          Bagaimana Kami{" "}
+          <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
+            Bekerja
+          </span>
+        </h2>
+        <p className="mt-4 text-xl text-muted-foreground">
+          Kami mengubah ide menjadi kenyataan melalui proses yang terstruktur
+          dan kolaboratif.
+        </p>
+      </div>
 
-        {/* Tombol Filter */}
-        <div className="flex justify-center flex-wrap gap-2 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted hover:bg-accent"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+      <div className="flex justify-center gap-4 mb-8">
+        {caseStudies.map((study) => (
+          <Button
+            key={study.id}
+            variant={activeTab === study.id ? "default" : "outline"}
+            onClick={() => setActiveTab(study.id)}
+          >
+            {study.category}
+          </Button>
+        ))}
+      </div>
 
-        {/* Grid Portofolio */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item, index) => (
-            <div
-              key={index}
-              className="group overflow-hidden rounded-lg shadow-sm hover:shadow-lg transition-shadow"
-            >
-              <div className="relative">
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  width={500}
-                  height={300}
-                  className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/20" />
+      {/* Konten Studi Kasus */}
+      {activeStudy && (
+        <Card className="overflow-hidden bg-white">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Kolom Gambar */}
+            <div className="relative min-h-[300px] lg:min-h-[500px]">
+              <Image
+                src={activeStudy.image}
+                alt={`Mockup untuk ${activeStudy.title}`}
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Kolom Teks */}
+            <div className="p-8 md:p-10 flex flex-col">
+              <Badge variant="secondary" className="w-fit mb-2">
+                {activeStudy.category}
+              </Badge>
+              <CardTitle className="text-2xl mb-4">
+                {activeStudy.title}
+              </CardTitle>
+
+              <p className="text-muted-foreground mb-6">
+                <span className="font-semibold text-foreground">
+                  Tantangan:
+                </span>{" "}
+                {activeStudy.challenge}
+              </p>
+
+              <h3 className="font-semibold text-lg mb-3">
+                Solusi & Proses Kami:
+              </h3>
+              <div className="space-y-4 mb-6">
+                {activeStudy.solution.map((sol, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div className="flex-shrink-0">{sol.icon}</div>
+                    <div>
+                      <p className="font-semibold">{sol.step}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {sol.details}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="p-4 bg-card">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.category}</p>
+
+              <div className="mt-auto bg-muted/50 p-4 rounded-lg">
+                <h3 className="font-semibold text-lg mb-2">Hasil Akhir:</h3>
+                <p className="text-sm text-muted-foreground">
+                  {activeStudy.result}
+                </p>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </Card>
+      )}
     </section>
   );
-}
+};
+
+export default Portfolio;

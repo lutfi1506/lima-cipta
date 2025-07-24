@@ -3,7 +3,6 @@ import Header from "@/components/landing/header";
 import Hero from "@/components/landing/hero";
 import Services from "@/components/landing/services";
 import Portfolio from "@/components/landing/portfolio";
-import Testimonial from "@/components/landing/testimonial";
 import Contact from "@/components/landing/contact";
 import About from "@/components/landing/about";
 import Footer from "@/components/landing/footer";
@@ -23,9 +22,6 @@ export default function HomePage() {
         </AnimationWrapper>
         <AnimationWrapper>
           <Portfolio />
-        </AnimationWrapper>
-        <AnimationWrapper>
-          <Testimonial />
         </AnimationWrapper>
         <AnimationWrapper>
           <Contact />
